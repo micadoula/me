@@ -1,0 +1,299 @@
+/* ===== VARIABLES (ajustar con los valores reales de Figma) ===== */
+:root {
+  --crema: #f8f2e8;
+  --rosa: #ecd9d0;
+  --salvia: #dde6d8;
+  --bordo: #7f3636;
+  --texto: #3a2a28;
+  --texto-suave: #6b5855;
+
+  --fuente-titulo: "Fraunces", Georgia, serif;
+  --fuente-texto: "DM Sans", system-ui, sans-serif;
+
+  --ancho: 1120px;
+  --espacio: clamp(3.5rem, 8vw, 7rem);
+  :root { --velo-hero: 0.5; } 
+}
+
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+h1 { font-size: clamp(2.2rem, 5vw, 3.75rem); }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+h3 { font-size: 1.3rem; }
+
+p { margin: 0 0 1rem; max-width: 62ch; }
+
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--bordo); outline-offset: 3px; }
+
+.container {
+  width: min(100% - 2.5rem, var(--ancho));
+  margin-inline: auto;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  background: var(--bordo);
+  color: #fff;
+  border: 2px solid var(--bordo);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover { background: transparent; color: var(--bordo); }
+.btn-small { padding: 0.5rem 1.1rem; font-size: 0.95rem; }
+.btn-light { background: var(--crema); color: var(--bordo); border-color: var(--crema); }
+.btn-light:hover { background: transparent; color: var(--crema); }
+.btn-outline { background: transparent; color: var(--crema); border-color: var(--crema); }
+.btn-outline:hover { background: var(--crema); color: var(--bordo); }
+
+/* ===== ENCABEZADO ===== */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  background: transparent;
+  color: var(--crema);
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.site-header.is-scrolled {
+  background: var(--crema);
+  color: var(--texto);
+  border-bottom-color: rgba(127, 54, 54, 0.15);
+  box-shadow: 0 2px 12px rgba(58, 42, 40, 0.08);
+}
+
+.site-header:not(.is-scrolled) .btn-small {
+  background: var(--crema);
+  color: var(--bordo);
+  border-color: var(--crema);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.9rem;
+}
+.logo {
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list a { text-decoration: none; font-size: 0.95rem; }
+.nav-list a:not(.btn):hover { text-decoration: underline; }
+
+/* ===== SECCIONES ===== */
+.section { padding-block: var(--espacio); }
+.section-rose { background: var(--rosa); }
+.section-sage { background: var(--salvia); }
+.section-cta { background: var(--bordo); color: var(--crema); }
+
+.section-intro { color: var(--texto-suave); margin-bottom: 2rem; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 85vh;
+  min-height: 85svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: 8rem 5rem;
+  color: var(--crema);
+  background-color: #5b3a30;
+  background-image:
+    linear-gradient(to bottom, rgba(30, 20, 16, 0.5), rgba(30, 20, 16, 0) 28%),
+    linear-gradient(rgba(30, 20, 16, var(--velo-hero)), rgba(30, 20, 16, var(--velo-hero))),
+    url("img/flowers-park.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.hero-content h1 {
+  max-width: none;
+  text-wrap: balance;
+  text-shadow: 0 1px 14px rgba(30, 20, 16, 0.55);
+}
+.lead {
+  font-size: 1.2rem;
+  max-width: 52ch;
+  margin: 0 auto;
+  text-shadow: 0 1px 14px rgba(30, 20, 16, 0.55);
+}
+
+
+/* Imagen provisoria: reemplazar por <img> */
+.img-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--rosa);
+  border-radius: 1.25rem;
+}
+
+/* ===== TARJETAS (Embarazo / Parto / Puerperio) ===== */
+.cards-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--crema);
+  border-radius: 1rem;
+  padding: 1.75rem;
+}
+.card ul { margin: 0; padding-left: 1.1rem; color: var(--texto-suave); }
+
+/* ===== VALORES ===== */
+.values { list-style: none; margin: 0; padding: 0; }
+.values li { padding-block: 0.75rem; border-top: 1px solid rgba(58, 42, 40, 0.2); }
+
+/* ===== PASOS ===== */
+.steps {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  counter-reset: paso;
+}
+.steps li { counter-increment: paso; }
+.steps li::before {
+  content: counter(paso);
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: var(--salvia);
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+}
+
+/* ===== CITA ===== */
+blockquote {
+  margin: 1.5rem 0 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--bordo);
+  font-family: var(--fuente-titulo);
+  font-size: 1.2rem;
+}
+blockquote footer { font-family: var(--fuente-texto); font-size: 0.9rem; color: var(--texto-suave); }
+
+/* ===== PREGUNTAS FRECUENTES ===== */
+.faq details { border-top: 1px solid rgba(58, 42, 40, 0.2); padding-block: 1rem; }
+.faq details:last-child { border-bottom: 1px solid rgba(58, 42, 40, 0.2); }
+.faq summary { cursor: pointer; font-weight: 700; list-style-position: outside; }
+.faq details p { margin: 0.75rem 0 0; color: var(--texto-suave); }
+
+/* ===== CONTACTO ===== */
+.cta-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+
+/* ===== PIE ===== */
+.site-footer { background: var(--bordo); color: var(--crema); border-top: 1px solid rgba(248, 242, 232, 0.25); }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding-block: 1.5rem; font-size: 0.9rem; }
+.footer-inner p { margin: 0; }
+
+/* ===== MÓVIL ===== */
+@media (max-width: 820px) {
+  .nav-list li:not(:last-child) { display: none; } /* menú móvil: pendiente */
+  .two-col, .cards-3, .steps { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .site-header { transition: none; }
+}
+
+/* ===== APARICIÓN CON DESENFOQUE AL HACER SCROLL ===== */
+
+  .reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(24px);
+  transition: opacity 0.55s ease-out, filter 0.55s ease-out, transform 0.55s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; filter: none; transform: none; transition: none; }
+}
+
+/* ===== INTEGRANTES ===== */
+.team-title { margin-bottom: 2rem; }
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2.5rem 2rem;
+}
+
+.team-photo {
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--rosa);
+  margin: 0 auto 1.1rem;
+}
+
+.team-member h4 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.25rem;
+  margin: 0 0 0.15rem;
+}
+.team-role { color: var(--bordo); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.6rem; }
+.team-member p:last-child { color: var(--texto-suave); font-size: 0.98rem; margin: 0; }
+
+@media (max-width: 600px) {
+  .team-photo { aspect-ratio: 1; }
+}
