@@ -1,0 +1,97 @@
+body{
+    background-color: var(--fondo);
+    margin: 0;
+    padding: 20px;               
+}
+
+:root {
+--fondo: #222;          
+--caja: #1a1a1a;           
+--tarjeta: #242424;                        
+--texto: #ececec;          
+--texto-suave: #a3a3a3;    
+--borde: #2e2e2e;          
+}
+
+.foto {
+  display: block;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;          
+  border-radius: 50%;        
+  margin-bottom: 24px;        
+  background-color: #242424;  
+}
+
+h1,h2,h3{
+    color:#ddd;
+    font-family: "michroma";
+}
+
+p{
+    color:#ddd;
+    font-family: "Urbanist";
+}
+
+
+.caja{
+margin: auto;
+background-color: var(--caja);
+min-height: calc(100vh - 40px);
+padding: 48px;               
+border-radius: 12px; 
+border: 3px solid var(--borde);        
+box-sizing: border-box;
+max-width: 1100px;
+}
+
+
+
+.proyectos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.proyecto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 130px;
+  text-decoration: none;
+  color: var(--texto);
+  background: none;        
+  border: none;
+}
+
+.proyecto img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--tarjeta);
+  padding: 3px;                          
+  border: 2px solid var(--texto-suave);  
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.proyecto h3 {
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.proyecto:hover img {
+  transform: scale(1.06);
+  border-color: var(--texto);
+}
+
+.etiqueta {
+display: inline-block;
+margin: 0 16px 16px;
+font-family: inherit;
+font-size: 0.85rem;
+opacity: 0.7;
+}
+
